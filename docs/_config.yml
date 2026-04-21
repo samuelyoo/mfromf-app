@@ -1,0 +1,12 @@
+title: mfromf – Future Message Platform
+description: Business and product documentation for the mfromf app
+theme: minima
+lang: ko
+
+markdown: kramdown
+highlighter: rouge
+
+exclude:
+  - "*.sh"
+  - Gemfile
+  - Gemfile.lock
