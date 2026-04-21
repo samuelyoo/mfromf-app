@@ -1,0 +1,87 @@
+---
+layout: default
+---
+<section class="doc-hero">
+  <div>
+    <span class="eyebrow">{{ page.section }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.summary }}</p>
+  </div>
+
+  <div class="doc-hero__meta">
+    <span>Source</span>
+    <a href="{{ site.repository_url }}/blob/{{ site.source_ref }}/docs/{{ page.source_path | uri_escape }}">{{ page.source_path }}</a>
+  </div>
+</section>
+
+<section
+  class="unlock-shell"
+  data-gated-doc
+  data-payload-url="{{ page.payload | relative_url }}"
+  data-doc-title="{{ page.title | escape }}"
+>
+  <div class="unlock-panel" data-gate-panel>
+    <div class="unlock-panel__header">
+      <span class="eyebrow">Access required</span>
+      <h2>Unlock this document</h2>
+      <p>
+        Enter the shared password to decrypt this document in your browser. The published page only points to an encrypted payload.
+      </p>
+    </div>
+
+    <form class="unlock-form" data-gate-form>
+      <label class="field">
+        <span>Password</span>
+        <input
+          type="password"
+          name="password"
+          autocomplete="current-password"
+          placeholder="Enter the shared docs password"
+          required
+          data-gate-input
+        >
+      </label>
+
+      <div class="unlock-actions">
+        <button class="button button--primary" type="submit" data-gate-submit>Decrypt document</button>
+        <button class="button button--tertiary" type="button" data-gate-clear hidden>Forget session password</button>
+      </div>
+
+      <p class="status-message" data-gate-status>
+        The password is stored in <code>sessionStorage</code> so the team can move between docs during the same browser session.
+      </p>
+    </form>
+
+    <noscript>
+      <p class="status-message status-message--error">
+        JavaScript is required to decrypt and read this document.
+      </p>
+    </noscript>
+  </div>
+
+  <div class="unlock-toolbar" data-gate-toolbar hidden>
+    <p class="status-message status-message--success" data-gate-toolbar-status>
+      Document decrypted for this browser session.
+    </p>
+    <div class="unlock-actions unlock-actions--compact">
+      <button
+        class="button button--tertiary"
+        type="button"
+        data-gate-toggle-panel
+        aria-expanded="false"
+      >
+        Show access panel
+      </button>
+      <button class="button button--tertiary" type="button" data-gate-clear hidden>Forget session password</button>
+    </div>
+  </div>
+
+  <div class="doc-surface" data-doc-surface hidden>
+    <aside class="doc-toc" data-doc-toc hidden>
+      <span class="eyebrow">On this page</span>
+      <nav aria-label="Table of contents"></nav>
+    </aside>
+
+    <article class="prose doc-content" data-doc-content></article>
+  </div>
+</section>

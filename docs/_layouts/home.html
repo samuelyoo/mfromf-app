@@ -1,0 +1,86 @@
+---
+layout: default
+---
+{% assign featured_docs = site.data.published_docs | where: "featured", true %}
+{% assign grouped_docs = site.data.published_docs | group_by: "section" %}
+
+<section class="hero">
+  <div class="hero__copy">
+    <span class="eyebrow">Team-ready sharing</span>
+    <h1>Secure product docs for FutureKey and mfromf planning.</h1>
+    <p class="lede">
+      This GitHub Pages portal publishes selected planning documents as encrypted payloads,
+      then decrypts them in the browser with the shared team password.
+    </p>
+
+    <div class="hero__actions">
+      <a class="button button--primary" href="#document-index">Browse docs</a>
+      <a class="button button--secondary" href="{{ site.repository_url }}">Open repository</a>
+    </div>
+  </div>
+
+  <div class="hero__panel" aria-label="Publishing model">
+    <div class="metric-card">
+      <span class="metric-card__label">Protection model</span>
+      <strong>Encrypted during the Pages build</strong>
+      <p>Only AES-GCM payloads are published for selected docs; the readable document body unlocks in the browser.</p>
+    </div>
+    <div class="metric-card">
+      <span class="metric-card__label">Source of truth</span>
+      <strong>Markdown stays in the repo</strong>
+      <p>The BRD and meeting notes remain editable as Markdown while this portal acts as the team-facing layer.</p>
+    </div>
+    <div class="metric-card">
+      <span class="metric-card__label">Project path</span>
+      <strong>Configured for GitHub Pages</strong>
+      <p>The generated site is built for the repository Pages URL under <code>/mfromf-app/</code>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <span class="eyebrow">Recommended first reads</span>
+    <h2>Start with the docs most useful for product review</h2>
+  </div>
+
+  <div class="card-grid card-grid--featured">
+    {% for doc in featured_docs %}
+      {% assign doc_url = '/docs/' | append: doc.slug | append: '/' %}
+      <a class="doc-card doc-card--featured" href="{{ doc_url | relative_url }}">
+        <span class="doc-card__section">{{ doc.section }}</span>
+        <h3>{{ doc.title }}</h3>
+        <p>{{ doc.summary }}</p>
+        <span class="doc-card__meta">{{ doc.audience }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-block" id="document-index">
+  <div class="section-heading">
+    <span class="eyebrow">Library</span>
+    <h2>Published document index</h2>
+  </div>
+
+  {% for group in grouped_docs %}
+    <section class="library-group">
+      <div class="library-group__header">
+        <h3>{{ group.name }}</h3>
+        <span>{{ group.items | size }} docs</span>
+      </div>
+
+      <div class="card-grid">
+        {% for doc in group.items %}
+          {% assign doc_url = '/docs/' | append: doc.slug | append: '/' %}
+          <a class="doc-card" href="{{ doc_url | relative_url }}">
+            <span class="doc-card__section">{{ doc.section }}</span>
+            <h4>{{ doc.title }}</h4>
+            <p>{{ doc.summary }}</p>
+            <span class="doc-card__meta">{{ doc.audience }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</section>

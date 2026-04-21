@@ -1,14 +1,31 @@
 title: mfromf – Future Message Platform
-description: Business and product documentation for the mfromf app
-baseurl: "/mfromf-app"
+description: Password-protected product documentation for FutureKey / mfromf.
+baseurl: /mfromf-app
 url: "https://samuelyoo.github.io"
-theme: minima
+repository_url: https://github.com/samuelyoo/mfromf-app
+source_ref: main
+timezone: America/Toronto
 lang: ko
 
 markdown: kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: pretty
+collections:
+  published_docs:
+    output: true
+    permalink: /docs/:name/
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 exclude:
-  - "*.sh"
+  - BRD.md
+  - ref_BRD.md
+  - meeting_summary_2026-04-21.md
   - Gemfile
   - Gemfile.lock
+  - README.md
+  - scripts
+  - vendor

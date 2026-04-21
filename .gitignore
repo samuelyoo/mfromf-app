@@ -1,0 +1,9 @@
+# docs site local output
+docs/.bundle
+docs/.jekyll-cache
+docs/vendor
+docs/_site
+docs/assets/encrypted/*.json
+!docs/assets/encrypted/.gitkeep
+docs/_published_docs/*.md
+!docs/_published_docs/.gitkeep

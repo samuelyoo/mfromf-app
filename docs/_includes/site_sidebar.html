@@ -1,0 +1,23 @@
+{% assign grouped_docs = site.data.published_docs | group_by: "section" %}
+
+<nav class="sidebar-nav" aria-label="Documentation sections">
+  <div class="sidebar-block">
+    <span class="sidebar-label">Portal</span>
+    <a class="sidebar-home-link" href="{{ '/' | relative_url }}">Overview</a>
+  </div>
+
+  {% for group in grouped_docs %}
+    <div class="sidebar-block">
+      <span class="sidebar-label">{{ group.name }}</span>
+      {% for doc in group.items %}
+        {% assign doc_url = '/docs/' | append: doc.slug | append: '/' %}
+        <a
+          class="sidebar-link{% if page.doc_slug == doc.slug %} is-active{% endif %}"
+          href="{{ doc_url | relative_url }}"
+        >
+          {{ doc.title }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</nav>

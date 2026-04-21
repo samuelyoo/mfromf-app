@@ -1,0 +1,21 @@
+- slug: brd
+  title: BRD Draft
+  section: Product Strategy
+  source: BRD.md
+  summary: Current business requirements for the future message and memory delivery platform.
+  audience: Founding team, product, business
+  featured: true
+- slug: reference-brd
+  title: Reference BRD v2
+  section: Product Strategy
+  source: ref_BRD.md
+  summary: Integrated reference draft covering the FutureKey vision, scope, personas, and key-based access model.
+  audience: Founding team, product
+  featured: true
+- slug: meeting-summary-2026-04-21
+  title: Meeting Summary - 2026-04-21
+  section: Meetings
+  source: meeting_summary_2026-04-21.md
+  summary: Team discussion notes covering product direction, monetization, UX ideas, operations, and next actions.
+  audience: Founding team
+  featured: true

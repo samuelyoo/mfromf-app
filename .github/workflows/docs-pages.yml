@@ -33,6 +33,8 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Validate docs password
         run: test -n "$DOCS_PASSWORD"
@@ -43,6 +45,10 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
           working-directory: docs
+
+      - name: Generate encrypted payloads
+        working-directory: docs
+        run: bundle exec ruby scripts/build_encrypted_docs.rb
 
       - name: Build Jekyll site
         working-directory: docs
