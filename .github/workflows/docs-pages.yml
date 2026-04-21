@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+    env:
+      JEKYLL_ENV: production
+      DOCS_PASSWORD: ${{ secrets.DOCS_PASSWORD }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -30,8 +33,9 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
+
+      - name: Validate docs password
+        run: test -n "$DOCS_PASSWORD"
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -43,8 +47,6 @@ jobs:
       - name: Build Jekyll site
         working-directory: docs
         run: bundle exec jekyll build --trace
-        env:
-          JEKYLL_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
