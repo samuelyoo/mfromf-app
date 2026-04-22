@@ -1,4 +1,5 @@
-{% assign grouped_docs = site.data.published_docs | group_by: "section" %}
+{% assign active_docs = site.data.published_docs | where: "archive", false %}
+{% assign archive_docs = site.data.published_docs | where: "archive", true %}
 
 <nav class="sidebar-nav" aria-label="Documentation sections">
   <div class="sidebar-block">
@@ -6,10 +7,24 @@
     <a class="sidebar-home-link" href="{{ '/' | relative_url }}">Overview</a>
   </div>
 
-  {% for group in grouped_docs %}
-    <div class="sidebar-block">
-      <span class="sidebar-label">{{ group.name }}</span>
-      {% for doc in group.items %}
+  <div class="sidebar-block">
+    <span class="sidebar-label">Documents</span>
+    {% for doc in active_docs %}
+      {% assign doc_url = '/docs/' | append: doc.slug | append: '/' %}
+      <a
+        class="sidebar-link{% if page.doc_slug == doc.slug %} is-active{% endif %}"
+        href="{{ doc_url | relative_url }}"
+      >
+        {{ doc.title }}
+      </a>
+    {% endfor %}
+  </div>
+
+  {% if archive_docs.size > 0 %}
+  <div class="sidebar-block">
+    <details class="sidebar-archive">
+      <summary class="sidebar-label sidebar-archive__summary">Archive</summary>
+      {% for doc in archive_docs %}
         {% assign doc_url = '/docs/' | append: doc.slug | append: '/' %}
         <a
           class="sidebar-link{% if page.doc_slug == doc.slug %} is-active{% endif %}"
@@ -18,6 +33,7 @@
           {{ doc.title }}
         </a>
       {% endfor %}
-    </div>
-  {% endfor %}
+    </details>
+  </div>
+  {% endif %}
 </nav>
