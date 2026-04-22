@@ -16,12 +16,12 @@
   archive: true
 - slug: prd
   title: PRD Draft
-  section: Archive
+  section: Product Strategy
   source: PRD.md
   summary: Product requirements for the FutureKey MVP based on the integrated BRD.
   audience: Founding team, product, design, engineering
   featured: false
-  archive: true
+  archive: false
 - slug: meeting-summary-2026-04-21
   title: Meeting Summary - 2026-04-21
   section: Archive

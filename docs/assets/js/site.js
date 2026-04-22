@@ -144,7 +144,7 @@
       return;
     }
 
-    const headings = Array.from(content.querySelectorAll("h2, h3")).slice(0, 14);
+    const headings = Array.from(content.querySelectorAll("h2, h3"));
     nav.innerHTML = "";
 
     if (!headings.length) {
