@@ -523,6 +523,8 @@ pre {
   position: sticky;
   top: 24px;
   padding: 16px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
 }
 
 .doc-toc nav {

@@ -1,6 +1,7 @@
 # BRD (Business Requirements Document)
 ## Project Working Title: Future Message / Memory Delivery Platform
 ### Version: v1.0
+### Status: Final
 ### Language: Korean
 ### Prepared for: Founding Team / Ideation Discussion
 
