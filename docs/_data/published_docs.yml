@@ -22,6 +22,22 @@
   audience: Founding team, product, design, engineering
   featured: false
   archive: false
+- slug: trd
+  title: TRD
+  section: Engineering
+  source: TRD.md
+  summary: Technical requirements, system architecture, data model, and deployment strategy for the FutureKey MVP. (v0.2)
+  audience: Engineering team, DevOps, product management
+  featured: false
+  archive: false
+- slug: hld
+  title: HLD
+  section: Engineering
+  source: HLD.md
+  summary: High-level system design including architecture diagrams, user journey flows, data models, state machines, and sprint mapping for the FutureKey MVP. (v0.2)
+  audience: Engineering team, product, design
+  featured: false
+  archive: false
 - slug: meeting-summary-2026-04-21
   title: Meeting Summary - 2026-04-21
   section: Archive
