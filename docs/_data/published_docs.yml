@@ -38,6 +38,22 @@
   audience: Engineering team, product, design
   featured: false
   archive: false
+- slug: user-journey
+  title: User Journey (EN)
+  section: Product Strategy
+  source: user-journey.md
+  summary: End-to-end user journey diagram and key UX design moments across Sender, Recipient, and Viewer actors.
+  audience: Product, design, engineering
+  featured: false
+  archive: false
+- slug: user-journey-ko
+  title: 사용자 여정 (KO)
+  section: Product Strategy
+  source: user-journey-ko.md
+  summary: 발신자, 수신자, Viewer 3개 액터의 전체 사용자 여정 다이어그램 및 주요 UX 설계 포인트.
+  audience: 제품, 디자인, 개발팀
+  featured: false
+  archive: false
 - slug: meeting-summary-2026-04-21
   title: Meeting Summary - 2026-04-21
   section: Archive

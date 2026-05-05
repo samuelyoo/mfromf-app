@@ -24,6 +24,11 @@ exclude:
   - BRD.md
   - ref_BRD.md
   - meeting_summary_2026-04-21.md
+  - PRD.md
+  - TRD.md
+  - HLD.md
+  - user-journey.md
+  - user-journey-ko.md
   - Gemfile
   - Gemfile.lock
   - README.md
