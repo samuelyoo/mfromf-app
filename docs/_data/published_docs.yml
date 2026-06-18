@@ -1,3 +1,11 @@
+- slug: walkthrough
+  title: Product Walkthrough
+  section: Product Strategy
+  source: walkthrough.md
+  summary: Screen-by-screen tour of the working product for business stakeholders, with flow and sequence diagrams and a live screenshot of every portal.
+  audience: Founding team, business, product, partners
+  featured: true
+  archive: false
 - slug: brd
   title: BRD
   section: Product Strategy
